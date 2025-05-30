@@ -1,6 +1,3 @@
-import { createClient } from 'jsr:@supabase/supabase-js@2'
-
-
 let year = new Date().getFullYear(); // get current year();
 document.querySelector("#year").innerHTML = year;
 const initApp = () => {
@@ -28,8 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastName = document.getElementById("last_name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
-    const birthday= document.getElementById("birthday").value.trim();
-    const appointmentType = document.querySelector('input[name="appointment_type"]:checked');
+    const birthday = document.getElementById("birthday").value.trim();
+    const appointmentType = document.querySelector(
+      'input[name="appointment_type"]:checked'
+    );
     const department = document.getElementById("department").value.trim();
     let errors = [];
 
@@ -60,22 +59,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-  let login = document.getElementById("loginBtn");
-  let modal = document.getElementById("loginModal");
-  let closeBtn = document.getElementById("closeModal");
+let login = document.getElementById("loginBtn");
+let modal = document.getElementById("loginModal");
+let closeBtn = document.getElementById("closeModal");
 
-  login.addEventListener("click", function () {
-    modal.classList.remove("hidden");
-  });
+login.addEventListener("click", function () {
+  modal.classList.remove("hidden");
+});
 
-  closeBtn.addEventListener("click", function () {
+closeBtn.addEventListener("click", function () {
+  modal.classList.add("hidden");
+});
+
+// Optional: Close modal on background click
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
     modal.classList.add("hidden");
-  });
-
-  // Optional: Close modal on background click
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-
+  }
+});
